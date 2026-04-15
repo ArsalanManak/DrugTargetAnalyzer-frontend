@@ -62,13 +62,13 @@ export function MolViewer({ pdbText }: { pdbText: string | null }) {
 
   return (
     <div className="w-full">
-      <div className="rounded-md border border-zinc-200 bg-white">
+      <div className="rounded-md border border-zinc-200 bg-white overflow-hidden">
         <div className="border-b border-zinc-200 px-3 py-2 text-sm font-medium text-zinc-900">
           Protein 3D (AlphaFold)
         </div>
         <div
           ref={elRef}
-          className="h-[360px] w-full"
+          className="relative h-[360px] w-full overflow-hidden"
         />
         {!pdbText ? (
           <div className="px-3 pb-3 text-xs text-zinc-600">No structure available.</div>
