@@ -3,13 +3,8 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const body = await req.json();
 
-  const backendUrl = process.env.BACKEND_URL;
-  if (!backendUrl) {
-    return NextResponse.json(
-      { error: "BACKEND_URL is not set" },
-      { status: 500 },
-    );
-  }
+  const backendUrl =
+    process.env.BACKEND_URL ?? "https://arsalan-joiya-drugtargetanalyzer.hf.space";
 
   const r = await fetch(`${backendUrl.replace(/\/$/, "")}/analyze`, {
     method: "POST",
